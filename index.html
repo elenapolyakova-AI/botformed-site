@@ -21,8 +21,8 @@
   --paper:#FAFAF7; --paper-2:#F1F0EB; --line:#DEDCD5;
   --text:#161616; --muted:#6E6C66; --on-dark:#D2CFC9; --on-dark-muted:#8A8884;
   --red:#C8382F; --red-soft:#E25A50;
-  --t1:#15803D; --t1-bg:#E3F5E8; --t2:#B45309; --t2-bg:#FBEFD6; --t3:#C8382F; --t3-bg:#FBE4E1;
-  --q1:#1E1B4B; --q2:#3730A3; --q3:#7C3AED; --q-glow:#A78BFA;
+  --t1:#8A8884; --t1-bg:#F1F0EB; --t2:#A3514A; --t2-bg:#F6E3E1; --t3:#C8382F; --t3-bg:#FBD9D5; --pink:#F6E3E1; --pink-2:#EFC9C4;
+  --q1:#1A0F0E; --q2:#2A1412; --q-glow:#E8A59E;
   --head:'Oxanium',system-ui,sans-serif; --body:'IBM Plex Sans',system-ui,-apple-system,sans-serif; --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;
   color-scheme:light;
 }
@@ -64,7 +64,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .gate-wrap{position:relative;aspect-ratio:1/1;max-width:100%;border:1px solid #2a2a2a;background:radial-gradient(60% 60% at 50% 50%,#1b1b1b 0%,#0E0E0E 100%)}
 .gate-wrap canvas{display:block;width:100%;height:100%}
 .gate-label{position:absolute;left:14px;bottom:12px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-muted)}
-.gate-label i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--t1);margin-right:8px;vertical-align:middle}
+.gate-label i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:8px;vertical-align:middle}
 @media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:48px}.gate-wrap{max-width:420px}}
 
 /* proof strip */
@@ -114,27 +114,27 @@ section.band{padding-block:88px}
 .tcard .pct{font-family:var(--head);font-weight:600;font-size:22px;grid-row:1/3;align-self:center}
 .tcard .w{font-weight:600;font-size:17px;grid-column:1}
 .tcard .h{font-size:14px;color:var(--muted);grid-column:1/-1}
-.t1c{background:var(--t1-bg);border-color:#BFE3C9}.t1c .k,.t1c .pct{color:var(--t1)}
-.t2c{background:var(--t2-bg);border-color:#EED9A8}.t2c .k,.t2c .pct{color:var(--t2)}
-.t3c{background:var(--t3-bg);border-color:#F2C2BC}.t3c .k,.t3c .pct{color:var(--t3)}
+.t1c{background:var(--t1-bg);border-color:#D9D6D0}.t1c .k,.t1c .pct{color:var(--t1)}
+.t2c{background:var(--t2-bg);border-color:#EFC9C4}.t2c .k,.t2c .pct{color:var(--t2)}
+.t3c{background:var(--t3-bg);border-color:#E6A39B}.t3c .k,.t3c .pct{color:var(--t3)}
 .wall{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text)}
 .wall::before,.wall::after{content:"";flex:1;height:3px;background:var(--ink)}
-.wall span{width:30px;height:30px;border-radius:50%;border:2.5px solid var(--q2);display:grid;place-items:center}
-.wall span::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--q2)}
+.wall span{width:30px;height:30px;border-radius:50%;border:2.5px solid var(--red);display:grid;place-items:center}
+.wall span::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--red)}
 .tiers .mcopy p+p{margin-top:14px}
 @media (max-width:860px){.tiers{grid-template-columns:1fr}}
 
 /* research band */
-.research{background:linear-gradient(135deg,var(--q1) 0%,#241f5e 45%,var(--q2) 100%);color:#E6E4F7;position:relative;overflow:hidden}
-.research::after{content:"";position:absolute;right:-20%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(167,139,250,.28),transparent 70%);pointer-events:none}
+.research{background:linear-gradient(135deg,#0E0E0E 0%,var(--q1) 55%,var(--q2) 100%);color:#E9E3E1;position:relative;overflow:hidden}
+.research::after{content:"";position:absolute;right:-20%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(200,56,47,.30),transparent 70%);pointer-events:none}
 .research .eyebrow{color:var(--q-glow)}
-.research .lede{color:#C7C3EA}
+.research .lede{color:#CFC6C3}
 .research h2{color:#fff}
 .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;position:relative}
 .rcard{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);padding:22px;border-radius:6px;min-width:0}
 .rcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--q-glow);margin-bottom:10px}
-.rcard p{font-size:15px;color:#DDD9F5}
-.rnote{margin-top:28px;font-family:var(--mono);font-size:12px;color:#B6B1E3;max-width:70ch}
+.rcard p{font-size:15px;color:#E4DDDA}
+.rnote{margin-top:28px;font-family:var(--mono);font-size:12px;color:#BFB4B1;max-width:70ch}
 @media (max-width:860px){.rgrid{grid-template-columns:1fr}}
 
 /* principles */
@@ -168,7 +168,7 @@ section.band{padding-block:88px}
 .form label{display:grid;gap:6px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-muted)}
 .form input,.form textarea,.form select{font:inherit;font-size:16px;color:#fff;background:#141414;border:1px solid #333;padding:12px 14px;border-radius:4px;width:100%}
 .form textarea{min-height:110px;resize:vertical}
-.form .ok{font-family:var(--mono);font-size:13px;color:#8FD6A3}
+.form .ok{font-family:var(--mono);font-size:13px;color:var(--q-glow)}
 @media (max-width:860px){.contact .wrap{grid-template-columns:1fr;padding-block:56px}}
 
 footer{background:#080808;color:var(--on-dark-muted);font-family:var(--mono);font-size:12px}
@@ -204,17 +204,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <header class="hero" id="top">
   <div class="wrap">
     <div>
-      <p class="eyebrow">AI transition for companies with something to protect</p>
-      <h1 style="margin-top:14px">Use AI on everything.<br>Except <em>the one thing.</em></h1>
-      <p class="lede">Botformed moves science-led companies onto AI: the communications, the documents, the daily work. And we draw the line around the formula, the recipe or the design that makes you valuable, so it never leaves the building.</p>
+      <p class="eyebrow">AI adoption for companies with sensitive data</p>
+      <h1 style="margin-top:14px">You need AI to stay competitive.<br>You can't afford <em>a leak.</em></h1>
+      <p class="lede">Botformed helps companies adopt AI in stages, safely. We sort your data from benign to crown jewels, put the right AI on each level, and make sure the sensitive part never leaves your control.</p>
       <div class="cta">
-        <a class="btn btn-red" href="#contact">Start with a two-week engagement</a>
-        <a class="btn btn-ghost" href="#method">How the three tiers work</a>
+        <a class="btn btn-red" href="#contact">Talk to us</a>
+        <a class="btn btn-ghost" href="#method">How it works</a>
       </div>
     </div>
     <div class="gate-wrap" aria-label="Animation: data flows freely through the open and internal tiers; at the wall, only requests holding a valid ticket pass into the crown-jewel tier.">
       <canvas id="gate" width="640" height="640"></canvas>
-      <div class="gate-label"><i></i>Live: the gate checking tickets</div>
+      <div class="gate-label"><i></i>Data moving through three levels; only ticketed requests pass the gate</div>
     </div>
   </div>
 </header>
@@ -222,7 +222,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <div class="strip">
   <div class="wrap">
     <div class="cell"><div class="num">40<span>%</span></div><div class="lab">of workplace AI interactions involve sensitive company data (Cyberhaven, 2026)</div></div>
-    <div class="cell"><div class="num">&lt;2<span>%</span></div><div class="lab">of a company's data is crown-jewel material. The rest should be on AI by Friday.</div></div>
+    <div class="cell"><div class="num">&lt;2<span>%</span></div><div class="lab">of a typical company's data is truly sensitive. The other 98% can be on AI now.</div></div>
     <div class="cell"><div class="num">3<span> weeks</span></div><div class="lab">from Samsung lifting its ChatGPT ban in 2023 to its first confidential leaks</div></div>
   </div>
 </div>
@@ -230,14 +230,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <section class="band" id="services">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">Services</p><h2 style="margin-top:10px">One ladder, five rungs. Most clients start on the first.</h2></div>
-      <p class="lede">Every rung is a paid engagement with a fixed scope and a deliverable you keep. The coloured squares show which tier of your data each one touches.</p>
+      <div><p class="eyebrow">Services</p><h2 style="margin-top:10px">AI in stages. Start where the risk is lowest.</h2></div>
+      <p class="lede">Each stage is a fixed-scope engagement with a deliverable you keep. The squares show which level of your data a stage touches, from benign to crown jewels.</p>
     </div>
     <div class="ladder">
       <article class="svc">
-        <div class="step"><span>Rung 1 · Communications and content</span><span class="tier" title="Touches Tier 1 only"><i class="a"></i><i class="off"></i><i class="off"></i></span></div>
-        <h3>We run your communications with AI, so your scientists do not have to.</h3>
-        <p>Website, investor pages, clinical or technical evidence summaries, newsroom, social, decks, internal documents. Produced with AI, edited by people who read the papers, delivered weekly. The fastest visible gain a technical company can get, and it touches only the public tier.</p>
+        <div class="step"><span>Stage 1 · Communications and content</span><span class="tier" title="Touches level 1 only"><i class="a"></i><i class="off"></i><i class="off"></i></span></div>
+        <h3>We produce your communications with AI, so your team does not have to.</h3>
+        <p>Website, investor pages, clinical or technical evidence summaries, newsroom, social, decks, internal documents. Produced with AI, edited by people who understand technical content, delivered weekly. The fastest visible gain, and it touches only public data.</p>
         <div class="price">Weekly delivery from the first week · monthly retainer</div>
         <div class="svc-right">
           <ul>
@@ -250,26 +250,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         </div>
       </article>
       <article class="svc">
-        <div class="step"><span>Rung 2 · AI transition</span><span class="tier" title="Touches Tiers 1 and 2"><i class="a"></i><i class="b"></i><i class="off"></i></span></div>
+        <div class="step"><span>Stage 2 · Company-wide adoption</span><span class="tier" title="Touches levels 1 and 2"><i class="a"></i><i class="b"></i><i class="off"></i></span></div>
         <h3>Move the whole company onto AI, properly.</h3>
         <p>Which tools, for whom, with what data. An acceptable-use policy people actually follow, approved tools that beat the personal accounts, and training by role. Ends the shadow-AI problem instead of banning it.</p>
         <div class="price">4 to 8 weeks · fixed fee</div>
       </article>
       <article class="svc">
-        <div class="step"><span>Rung 3 · Crown-jewel audit</span><span class="tier" title="Touches all three tiers"><i class="a"></i><i class="b"></i><i class="c"></i></span></div>
-        <h3>Find the 2% that must never leave. Write it down.</h3>
-        <p>Two to four weeks with your founders and the people who hold the secrets. The deliverable is the map: every data class in its tier, the rules for each, and the one-page diagram your board understands. Done by scientists, not by a questionnaire.</p>
-        <div class="price">2 to 4 weeks · fixed fee · the signature product</div>
+        <div class="step"><span>Stage 3 · Data audit</span><span class="tier" title="Touches all three levels"><i class="a"></i><i class="b"></i><i class="c"></i></span></div>
+        <h3>Sort your data from benign to crown jewels. Write the rules down.</h3>
+        <p>Two to four weeks with your leadership and the people who hold the sensitive data. The deliverable is the map: every data class on its level, the rules for each, and the one-page diagram your board understands. Done with your technical team, not by a questionnaire.</p>
+        <div class="price">2 to 4 weeks · fixed fee</div>
       </article>
       <article class="svc">
-        <div class="step"><span>Rung 4 · Architecture and build</span><span class="tier" title="Touches Tiers 2 and 3"><i class="off"></i><i class="b"></i><i class="c"></i></span></div>
-        <h3>The private tier, the local tier, and the gate between them.</h3>
-        <p>Which cloud for the open and internal tiers. What machine and which open-weight model for the crown jewels, often a single workstation. The gate and the approval chain. Built by named partners; we lead, specify and sign off. We never sell hardware.</p>
+        <div class="step"><span>Stage 4 · Architecture and build</span><span class="tier" title="Touches levels 2 and 3"><i class="off"></i><i class="b"></i><i class="c"></i></span></div>
+        <h3>The private level, the local level, and the gate between them.</h3>
+        <p>Which cloud for the open and internal levels. What machine and which model for the crown jewels, often a single workstation. The gate and the approval chain. Built by named partners; we lead, specify and sign off. We never sell hardware.</p>
         <div class="price">Scoped after the audit</div>
       </article>
       <article class="svc">
-        <div class="step"><span>Rung 5 · Fractional AI officer</span><span class="tier" title="Oversees all three tiers"><i class="a"></i><i class="b"></i><i class="c"></i></span></div>
-        <h3>Someone whose job it is to decide.</h3>
+        <div class="step"><span>Stage 5 · Ongoing oversight</span><span class="tier" title="Oversees all three levels"><i class="a"></i><i class="b"></i><i class="c"></i></span></div>
+        <h3>Someone whose job it is to keep it safe.</h3>
         <p>Policy, vendors, training and board reporting, on a monthly retainer. The relationship that keeps the wall standing as the tools change every quarter.</p>
         <div class="price">Monthly retainer</div>
       </article>
@@ -281,17 +281,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <div class="wrap">
     <div class="tiers">
       <div class="mcopy">
-        <p class="eyebrow">Method</p>
-        <h2 style="margin:10px 0 22px">One question of every piece of data: if this left the building, what would it cost?</h2>
-        <p>The answers sort everything into three tiers, and each tier gets the AI it deserves. Open data goes to the best cloud model on day one. Internal data runs in a private deployment you control, with access by role and a log of everything. The crown jewels live on local hardware with an open-weight model and no cable to the outside.</p>
+        <p class="eyebrow">How it works</p>
+        <h2 style="margin:10px 0 22px">One question of every piece of data: if this leaked, what would it cost?</h2>
+        <p>The answers sort everything into three levels, and each level gets the AI it can safely use. Open data goes to the best cloud model on day one. Internal data runs in a private deployment you control, with access by role and a log of everything. The crown jewels live on local hardware with an open-weight model and no cable to the outside.</p>
         <p>Between the second and third tier is a wall with a single gate. Every request that touches the crown jewels, whether a person, a file or an AI, presents a one-time ticket bound to one purpose and one time window. The gatekeeper says yes or no, spends the ticket, and writes it to a ledger no one can edit.</p>
-        <p style="margin-top:22px"><a class="btn btn-dark" href="#contact">Book a crown-jewel audit</a></p>
+        <p style="margin-top:22px"><a class="btn btn-dark" href="#contact">Ask about a data audit</a></p>
       </div>
       <div class="tier-stack" aria-label="The three tiers">
-        <div class="tcard t1c"><div class="k">Tier 1 · Open</div><div class="pct">~80%</div><div class="w">Marketing, decks, public papers, templates</div><div class="h">Any cloud AI. Start on day one.</div></div>
-        <div class="tcard t2c"><div class="k">Tier 2 · Internal</div><div class="pct">~18%</div><div class="w">Reports, customer lists, supplier terms, process data</div><div class="h">Private deployment. Access by role. Everything logged.</div></div>
+        <div class="tcard t1c"><div class="k">Level 1 · Benign</div><div class="pct">~80%</div><div class="w">Marketing, decks, public papers, templates</div><div class="h">Any cloud AI. Start on day one.</div></div>
+        <div class="tcard t2c"><div class="k">Level 2 · Internal</div><div class="pct">~18%</div><div class="w">Reports, customer lists, supplier terms, process data</div><div class="h">Private deployment. Access by role. Everything logged.</div></div>
         <div class="wall">the wall <span></span> the gate</div>
-        <div class="tcard t3c"><div class="k">Tier 3 · Crown jewels</div><div class="pct">~2%</div><div class="w">The formula. The recipe. The circuit. The failed experiments.</div><div class="h">Local hardware, open-weight model. Nothing leaves without a ticket.</div></div>
+        <div class="tcard t3c"><div class="k">Level 3 · Crown jewels</div><div class="pct">~2%</div><div class="w">The formula. The recipe. The circuit. The failed experiments.</div><div class="h">Local hardware, open-weight model. Nothing leaves without a ticket.</div></div>
       </div>
     </div>
   </div>
@@ -299,7 +299,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 <section class="band research" id="research">
   <div class="wrap">
-    <p class="eyebrow">Research programme</p>
+    <p class="eyebrow">Research</p>
     <h2 style="margin-top:10px;max-width:20ch">The quantum gate: a ticket no computer can forge.</h2>
     <p class="lede" style="margin-top:18px">Our research line asks one question: how do you make the gate's ticket hold for twenty years, through the arrival of quantum computers? Today's answer is built from parts you can buy. Tomorrow's is in the laboratory.</p>
     <div class="rgrid">
@@ -314,10 +314,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <section class="band" id="promises">
   <div class="wrap">
     <p class="eyebrow">Three promises</p>
-    <h2 style="margin:10px 0 40px">Why the advice can be trusted.</h2>
+    <h2 style="margin:10px 0 40px">Three things we never do.</h2>
     <div class="prin">
       <div><h3>We never sell hardware, licences or models.</h3><p>So there is no commission hidden in the recommendation. When a $6,000 workstation will do, we say so.</p></div>
-      <div><h3>We never handle Tier 3 data off your premises.</h3><p>Crown-jewel work happens in your building, on your machines, under your log.</p></div>
+      <div><h3>We never take your sensitive data off your premises.</h3><p>Crown-jewel work happens in your building, on your machines, under your log.</p></div>
       <div><h3>We never say "unbreakable".</h3><p>Every security claim comes with the attack it was tested against and the date.</p></div>
     </div>
   </div>
@@ -328,18 +328,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <div class="wrap">
     <div>
       <p class="eyebrow">Work with us</p>
-      <h2 style="margin-top:10px">Start with two weeks.</h2>
-      <p class="lede" style="margin-top:16px">A short, fixed-scope engagement on Rung 1 or Rung 3. You see the work before you commit to anything larger. Write to us or use the form.</p>
+      <h2 style="margin-top:10px">Tell us where you are.</h2>
+      <p class="lede" style="margin-top:16px">Whether you are just starting with AI or already worried about what your people paste into it, describe the situation in a few lines. We reply within two working days.</p>
       <div class="mail"><code id="mail">info@botformed.com</code><button class="copy" id="copybtn" type="button">Copy address</button></div>
       <p style="margin-top:28px;font-family:var(--mono);font-size:12px;color:var(--on-dark-muted);letter-spacing:.08em">BOTFORMED INC. · DELAWARE · BOSTON, MASSACHUSETTS</p>
     </div>
-    <form class="form" id="f">
-      <label>Name<input id="f-name" type="text" autocomplete="name"></label>
+    <form class="form" id="f" novalidate>
+      <label>Name *<input id="f-name" type="text" autocomplete="name" required></label>
+      <label>Email *<input id="f-email" type="email" autocomplete="email" required></label>
       <label>Company<input id="f-co" type="text" autocomplete="organization"></label>
-      <label>What are you protecting?<select id="f-what"><option>A formula or recipe</option><option>A process window</option><option>A design or circuit</option><option>Clinical or patient data</option><option>Not sure yet, that is the question</option></select></label>
-      <label>Message<textarea id="f-msg"></textarea></label>
+      <label>Your role<input id="f-role" type="text" autocomplete="organization-title" placeholder="CEO, CTO, head of R&amp;D, operations…"></label>
+      <label>Phone<input id="f-phone" type="tel" autocomplete="tel"></label>
+      <label>How can we help?<textarea id="f-msg" placeholder="A few lines about your situation is enough."></textarea></label>
       <button class="btn btn-red" type="submit">Send</button>
-      <p class="ok" id="f-ok" hidden>Concept page: nothing was sent. On the live site this goes to info@botformed.com.</p>
+      <p class="ok" id="f-ok" hidden>Thank you. We will reply within two working days.</p>
+      <p class="ok" id="f-err" hidden style="color:var(--red-soft)">Please add your name and a valid email address.</p>
     </form>
   </div>
 </section>
@@ -360,16 +363,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   function draw(){
     c.clearRect(0,0,Wd,Hd);
     // tier zones
-    c.fillStyle='rgba(21,128,61,0.08)'; c.fillRect(0,0,wallX*0.5,Hd);
-    c.fillStyle='rgba(180,83,9,0.08)'; c.fillRect(wallX*0.5,0,wallX*0.5,Hd);
-    c.fillStyle='rgba(200,56,47,0.10)'; c.fillRect(wallX,0,Wd-wallX,Hd);
+    c.fillStyle='rgba(210,207,201,0.05)'; c.fillRect(0,0,wallX*0.5,Hd);
+    c.fillStyle='rgba(210,207,201,0.09)'; c.fillRect(wallX*0.5,0,wallX*0.5,Hd);
+    c.fillStyle='rgba(200,56,47,0.14)'; c.fillRect(wallX,0,Wd-wallX,Hd);
     c.font='11px IBM Plex Mono, monospace'; c.fillStyle='#8A8884'; c.textAlign='left';
-    c.fillText('TIER 1 · OPEN',16,24); c.fillText('TIER 2 · INTERNAL',wallX*0.5+16,24); c.fillText('TIER 3',wallX+14,24);
+    c.fillText('LEVEL 1 · BENIGN',16,24); c.fillText('LEVEL 2 · INTERNAL',wallX*0.5+16,24); c.fillText('LEVEL 3',wallX+14,24);
     // wall
     c.fillStyle='#D2CFC9'; c.fillRect(wallX-2,0,4,gateY-gateR-6); c.fillRect(wallX-2,gateY+gateR+6,4,Hd);
     // gate ring
-    c.beginPath(); c.arc(wallX,gateY,gateR,0,Math.PI*2); c.strokeStyle='#3730A3'; c.lineWidth=3; c.stroke();
-    c.beginPath(); c.arc(wallX,gateY,7,0,Math.PI*2); c.fillStyle='#3730A3'; c.fill();
+    c.beginPath(); c.arc(wallX,gateY,gateR,0,Math.PI*2); c.strokeStyle='#C8382F'; c.lineWidth=3; c.stroke();
+    c.beginPath(); c.arc(wallX,gateY,7,0,Math.PI*2); c.fillStyle='#C8382F'; c.fill();
     // ledger ticks on the right
     c.fillStyle='#8A8884'; c.fillText('LEDGER',wallX+14,Hd-18);
     for(var p=0;p<ps.length;p++){
@@ -389,11 +392,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       if(q.x<-20) ps[p]=spawn(false);
       // draw
       c.beginPath(); c.arc(q.x,q.y,q.r,0,Math.PI*2);
-      c.fillStyle = q.state==='pass' ? '#A78BFA' : (q.ticket ? '#E25A50' : '#D2CFC9'); c.globalAlpha = q.state==='bounce'?0.55:0.9; c.fill(); c.globalAlpha=1;
+      c.fillStyle = q.state==='pass' ? '#F6E3E1' : (q.ticket ? '#E25A50' : '#D2CFC9'); c.globalAlpha = q.state==='bounce'?0.55:0.9; c.fill(); c.globalAlpha=1;
       if(q.ticket && q.state!=='pass'){ c.beginPath(); c.arc(q.x,q.y,q.r+3,0,Math.PI*2); c.strokeStyle='rgba(226,90,80,0.5)'; c.lineWidth=1; c.stroke(); }
     }
     // ledger entries
-    for(var l=0;l<ledger.length;l++){ c.fillStyle='#A78BFA'; c.fillRect(wallX+14+l*10,Hd-34,6,6); }
+    for(var l=0;l<ledger.length;l++){ c.fillStyle='#E8A59E'; c.fillRect(wallX+14+l*10,Hd-34,6,6); }
     if(!reduce) requestAnimationFrame(draw);
   }
   var ledger=[1,1,1,1,1];
@@ -405,7 +408,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     function sel(){ var r=document.createRange(); r.selectNodeContents(document.getElementById('mail')); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent='Select and copy'; }
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ btn.textContent='Copied'; setTimeout(function(){btn.textContent='Copy address';},1800); }, sel); } else sel();
   });
-  document.getElementById('f').addEventListener('submit',function(e){ e.preventDefault(); document.getElementById('f-ok').hidden=false; });
+  document.getElementById('f').addEventListener('submit',function(e){ e.preventDefault(); var n=document.getElementById('f-name').value.trim(), m=document.getElementById('f-email').value.trim(); var ok=n.length>0 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m); document.getElementById('f-err').hidden=ok; document.getElementById('f-ok').hidden=!ok; });
 })();
 </script>
 </body>
