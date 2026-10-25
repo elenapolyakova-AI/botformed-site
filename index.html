@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Botformed Website Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout concept: a black "instrument panel" hero with the gate animation, then calm paper sections for the services,
+   then one deep indigo band for the research programme. Scarlet is the only accent on black; the tier colours
+   (green / amber / scarlet) carry meaning and nothing else. */
+:root{
+  --ink:#0E0E0E; --ink-2:#171717; --ink-3:#242424;
+  --paper:#FAFAF7; --paper-2:#F1F0EB; --line:#DEDCD5;
+  --text:#161616; --muted:#6E6C66; --on-dark:#D2CFC9; --on-dark-muted:#8A8884;
+  --red:#C8382F; --red-soft:#E25A50;
+  --t1:#15803D; --t1-bg:#E3F5E8; --t2:#B45309; --t2-bg:#FBEFD6; --t3:#C8382F; --t3-bg:#FBE4E1;
+  --q1:#1E1B4B; --q2:#3730A3; --q3:#7C3AED; --q-glow:#A78BFA;
+  --head:'Oxanium',system-ui,sans-serif; --body:'IBM Plex Sans',system-ui,-apple-system,sans-serif; --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.1;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,4vw,40px)}
+h3{font-size:20px}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.lede{font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--muted);max-width:62ch}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:600;font-size:15px;letter-spacing:.02em;padding:14px 22px;border-radius:4px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-ghost{border-color:var(--on-dark-muted);color:var(--on-dark);background:transparent}
+.btn-dark{background:var(--ink);color:#fff}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(14,14,14,.92);backdrop-filter:blur(8px);border-bottom:1px solid #222}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--ink)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.wordmark{font-family:var(--head);font-weight:300;font-size:26px;color:var(--on-dark);text-decoration:none;letter-spacing:0}
+.wordmark b{font-weight:300;color:var(--red)}
+.nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0}
+.nav li a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-muted);text-decoration:none}
+.nav li a:hover{color:var(--on-dark)}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* hero */
+.hero{background:var(--ink);color:var(--on-dark);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-block:72px 64px}
+.hero h1{font-size:clamp(38px,5.2vw,64px);font-weight:500;color:#fff;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--red-soft)}
+.hero .lede{color:var(--on-dark-muted);margin-top:22px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.gate-wrap{position:relative;aspect-ratio:1/1;max-width:100%;border:1px solid #2a2a2a;background:radial-gradient(60% 60% at 50% 50%,#1b1b1b 0%,#0E0E0E 100%)}
+.gate-wrap canvas{display:block;width:100%;height:100%}
+.gate-label{position:absolute;left:14px;bottom:12px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-muted)}
+.gate-label i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--t1);margin-right:8px;vertical-align:middle}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:48px}.gate-wrap{max-width:420px}}
+
+/* proof strip */
+.strip{background:var(--ink-2);color:var(--on-dark);border-top:1px solid #222}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.strip .cell{padding:26px 24px 26px 0;border-right:1px solid #2a2a2a;margin-right:24px}
+.strip .cell:last-child{border:0;margin:0}
+.strip .num{font-family:var(--head);font-weight:600;font-size:34px;color:#fff;line-height:1}
+.strip .num span{color:var(--red-soft)}
+.strip .lab{font-size:14px;color:var(--on-dark-muted);margin-top:8px;max-width:30ch}
+@media (max-width:760px){.strip .wrap{grid-template-columns:1fr}.strip .cell{border-right:0;border-bottom:1px solid #2a2a2a;margin:0;padding:20px 0}.strip .cell:last-child{border:0}}
+
+/* sections */
+section.band{padding-block:88px}
+.band-alt{background:var(--paper-2)}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:48px}
+.sec-head .lede{margin-top:0}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr;gap:16px}}
+
+/* services */
+.ladder{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.svc{background:#fff;border:1px solid var(--line);padding:28px 28px 26px;display:grid;grid-template-rows:auto auto 1fr auto;gap:14px;min-width:0;position:relative}
+.svc:first-child{grid-column:1/-1;grid-template-columns:1.1fr .9fr;grid-template-rows:none;align-items:start;column-gap:40px;background:var(--ink);color:var(--on-dark);border-color:var(--ink)}
+.svc:first-child h3{color:#fff;font-size:28px}
+.svc:first-child p{color:var(--on-dark-muted)}
+.svc:first-child .svc-right{grid-row:1/4;grid-column:2}
+.svc .step{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.svc:first-child .step{color:var(--on-dark-muted)}
+.tier{display:inline-flex;gap:6px;align-items:center}
+.tier i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.tier .a{background:var(--t1)}.tier .b{background:var(--t2)}.tier .c{background:var(--t3)}.tier .off{background:var(--line)}
+.svc:first-child .tier .off{background:#333}
+.svc p{font-size:16px;color:var(--text)}
+.svc .price{font-family:var(--mono);font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.svc:first-child .price{border-color:#2d2d2d;color:var(--on-dark-muted)}
+.now{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--red);padding:4px 8px;border-radius:2px}
+.svc-right ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.svc-right li{padding-left:18px;position:relative;color:var(--on-dark);font-size:15px}
+.svc-right li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:2px;background:var(--red)}
+@media (max-width:860px){.ladder{grid-template-columns:1fr}.svc:first-child{grid-template-columns:1fr}.svc:first-child .svc-right{grid-row:auto;grid-column:auto}}
+
+/* tiers */
+.tiers{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.tier-stack{display:grid;gap:10px;position:relative}
+.tcard{border-radius:6px;padding:20px 22px;border:1px solid;display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:baseline}
+.tcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase}
+.tcard .pct{font-family:var(--head);font-weight:600;font-size:22px;grid-row:1/3;align-self:center}
+.tcard .w{font-weight:600;font-size:17px;grid-column:1}
+.tcard .h{font-size:14px;color:var(--muted);grid-column:1/-1}
+.t1c{background:var(--t1-bg);border-color:#BFE3C9}.t1c .k,.t1c .pct{color:var(--t1)}
+.t2c{background:var(--t2-bg);border-color:#EED9A8}.t2c .k,.t2c .pct{color:var(--t2)}
+.t3c{background:var(--t3-bg);border-color:#F2C2BC}.t3c .k,.t3c .pct{color:var(--t3)}
+.wall{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text)}
+.wall::before,.wall::after{content:"";flex:1;height:3px;background:var(--ink)}
+.wall span{width:30px;height:30px;border-radius:50%;border:2.5px solid var(--q2);display:grid;place-items:center}
+.wall span::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--q2)}
+.tiers .mcopy p+p{margin-top:14px}
+@media (max-width:860px){.tiers{grid-template-columns:1fr}}
+
+/* research band */
+.research{background:linear-gradient(135deg,var(--q1) 0%,#241f5e 45%,var(--q2) 100%);color:#E6E4F7;position:relative;overflow:hidden}
+.research::after{content:"";position:absolute;right:-20%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(167,139,250,.28),transparent 70%);pointer-events:none}
+.research .eyebrow{color:var(--q-glow)}
+.research .lede{color:#C7C3EA}
+.research h2{color:#fff}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;position:relative}
+.rcard{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);padding:22px;border-radius:6px;min-width:0}
+.rcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--q-glow);margin-bottom:10px}
+.rcard p{font-size:15px;color:#DDD9F5}
+.rnote{margin-top:28px;font-family:var(--mono);font-size:12px;color:#B6B1E3;max-width:70ch}
+@media (max-width:860px){.rgrid{grid-template-columns:1fr}}
+
+/* principles */
+.prin{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prin div{border-top:3px solid var(--ink);padding-top:18px}
+.prin h3{font-size:19px;margin-bottom:8px}
+.prin p{font-size:15.5px;color:var(--muted)}
+@media (max-width:760px){.prin{grid-template-columns:1fr}}
+
+/* people */
+.people{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.person{display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:start;background:#fff;border:1px solid var(--line);padding:22px}
+.avatar{width:96px;aspect-ratio:1;background:linear-gradient(160deg,#2a2a2a,#0E0E0E);display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:30px;color:var(--on-dark)}
+.avatar b{color:var(--red);font-weight:500}
+.person h3{font-size:20px}
+.person .role{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:4px 0 10px}
+.person p{font-size:15px}
+.ph{background:#FFF4D6;color:#7A4B00;font-family:var(--mono);font-size:12px;padding:1px 6px;border-radius:2px}
+@media (max-width:760px){.people{grid-template-columns:1fr}.person{grid-template-columns:72px 1fr}.avatar{width:72px;font-size:24px}}
+
+/* contact */
+.contact{background:var(--ink);color:var(--on-dark)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-block:88px}
+.contact h2{color:#fff}
+.contact .lede{color:var(--on-dark-muted)}
+.mail{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:26px}
+.mail code{font-family:var(--mono);font-size:18px;color:#fff;background:#1d1d1d;border:1px solid #2e2e2e;padding:12px 16px;border-radius:4px}
+.copy{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--on-dark);border:1px solid #444;padding:12px 14px;border-radius:4px;cursor:pointer}
+.copy:hover{border-color:var(--on-dark)}
+.form{display:grid;gap:12px}
+.form label{display:grid;gap:6px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-muted)}
+.form input,.form textarea,.form select{font:inherit;font-size:16px;color:#fff;background:#141414;border:1px solid #333;padding:12px 14px;border-radius:4px;width:100%}
+.form textarea{min-height:110px;resize:vertical}
+.form .ok{font-family:var(--mono);font-size:13px;color:#8FD6A3}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr;padding-block:56px}}
+
+footer{background:#080808;color:var(--on-dark-muted);font-family:var(--mono);font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:26px}
+
+/* appendix: visual language sheet */
+.appendix{border-top:6px solid var(--red)}
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.sw div{aspect-ratio:4/3;border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--mono);font-size:11px;line-height:1.4}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px}
+.spec .box{background:#fff;border:1px solid var(--line);padding:24px}
+.spec .box .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.rules{columns:2;column-gap:40px;font-size:15.5px;margin-top:36px}
+.rules li{break-inside:avoid;margin-bottom:10px}
+@media (max-width:760px){.spec{grid-template-columns:1fr}.rules{columns:1}}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="#top">b<b>o</b>tformed</a>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#people">People</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">AI transition for companies with something to protect</p>
+      <h1 style="margin-top:14px">Use AI on everything.<br>Except <em>the one thing.</em></h1>
+      <p class="lede">Botformed moves science-led companies onto AI: the communications, the documents, the daily work. And we draw the line around the formula, the recipe or the design that makes you valuable, so it never leaves the building.</p>
+      <div class="cta">
+        <a class="btn btn-red" href="#contact">Start with a two-week engagement</a>
+        <a class="btn btn-ghost" href="#method">How the three tiers work</a>
+      </div>
+    </div>
+    <div class="gate-wrap" aria-label="Animation: data flows freely through the open and internal tiers; at the wall, only requests holding a valid ticket pass into the crown-jewel tier.">
+      <canvas id="gate" width="640" height="640"></canvas>
+      <div class="gate-label"><i></i>Live: the gate checking tickets</div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="cell"><div class="num">40<span>%</span></div><div class="lab">of workplace AI interactions involve sensitive company data (Cyberhaven, 2026)</div></div>
+    <div class="cell"><div class="num">&lt;2<span>%</span></div><div class="lab">of a company's data is crown-jewel material. The rest should be on AI by Friday.</div></div>
+    <div class="cell"><div class="num">3<span> weeks</span></div><div class="lab">from Samsung lifting its ChatGPT ban in 2023 to its first confidential leaks</div></div>
+  </div>
+</div>
+
+<section class="band" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Services</p><h2 style="margin-top:10px">One ladder, five rungs. Most clients start on the first.</h2></div>
+      <p class="lede">Every rung is a paid engagement with a fixed scope and a deliverable you keep. The coloured squares show which tier of your data each one touches.</p>
+    </div>
+    <div class="ladder">
+      <article class="svc">
+        <div class="step"><span>Rung 1 · Communications and content</span><span class="tier" title="Touches Tier 1 only"><i class="a"></i><i class="off"></i><i class="off"></i></span></div>
+        <h3>We run your communications with AI, so your scientists do not have to.</h3>
+        <p>Website, investor pages, clinical or technical evidence summaries, newsroom, social, decks, internal documents. Produced with AI, edited by people who read the papers, delivered weekly. The fastest visible gain a technical company can get, and it touches only the public tier.</p>
+        <div class="price"><span class="now">Running now</span>&nbsp;&nbsp;Current engagement: communications and web for a medical-technology company <span class="ph">[CONFIRM: client name and permission to cite]</span></div>
+        <div class="svc-right">
+          <ul>
+            <li>Website pages and banners built and maintained</li>
+            <li>Evidence and literature summaries for non-specialists</li>
+            <li>LinkedIn, X and Instagram, planned and produced</li>
+            <li>Investor and partner materials</li>
+            <li>Internal documents, SOPs, training decks</li>
+          </ul>
+        </div>
+      </article>
+      <article class="svc">
+        <div class="step"><span>Rung 2 · AI transition</span><span class="tier" title="Touches Tiers 1 and 2"><i class="a"></i><i class="b"></i><i class="off"></i></span></div>
+        <h3>Move the whole company onto AI, properly.</h3>
+        <p>Which tools, for whom, with what data. An acceptable-use policy people actually follow, approved tools that beat the personal accounts, and training by role. Ends the shadow-AI problem instead of banning it.</p>
+        <div class="price">4 to 8 weeks · fixed fee</div>
+      </article>
+      <article class="svc">
+        <div class="step"><span>Rung 3 · Crown-jewel audit</span><span class="tier" title="Touches all three tiers"><i class="a"></i><i class="b"></i><i class="c"></i></span></div>
+        <h3>Find the 2% that must never leave. Write it down.</h3>
+        <p>Two to four weeks with your founders and the people who hold the secrets. The deliverable is the map: every data class in its tier, the rules for each, and the one-page diagram your board understands. Done by scientists, not by a questionnaire.</p>
+        <div class="price">2 to 4 weeks · fixed fee · the signature product</div>
+      </article>
+      <article class="svc">
+        <div class="step"><span>Rung 4 · Architecture and build</span><span class="tier" title="Touches Tiers 2 and 3"><i class="off"></i><i class="b"></i><i class="c"></i></span></div>
+        <h3>The private tier, the local tier, and the gate between them.</h3>
+        <p>Which cloud for the open and internal tiers. What machine and which open-weight model for the crown jewels, often a single workstation. The gate and the approval chain. Built by named partners; we lead, specify and sign off. We never sell hardware.</p>
+        <div class="price">Scoped after the audit</div>
+      </article>
+      <article class="svc">
+        <div class="step"><span>Rung 5 · Fractional AI officer</span><span class="tier" title="Oversees all three tiers"><i class="a"></i><i class="b"></i><i class="c"></i></span></div>
+        <h3>Someone whose job it is to decide.</h3>
+        <p>Policy, vendors, training and board reporting, on a monthly retainer. The relationship that keeps the wall standing as the tools change every quarter.</p>
+        <div class="price">Monthly retainer</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band band-alt" id="method">
+  <div class="wrap">
+    <div class="tiers">
+      <div class="mcopy">
+        <p class="eyebrow">Method</p>
+        <h2 style="margin:10px 0 22px">One question of every piece of data: if this left the building, what would it cost?</h2>
+        <p>The answers sort everything into three tiers, and each tier gets the AI it deserves. Open data goes to the best cloud model on day one. Internal data runs in a private deployment you control, with access by role and a log of everything. The crown jewels live on local hardware with an open-weight model and no cable to the outside.</p>
+        <p>Between the second and third tier is a wall with a single gate. Every request that touches the crown jewels, whether a person, a file or an AI, presents a one-time ticket bound to one purpose and one time window. The gatekeeper says yes or no, spends the ticket, and writes it to a ledger no one can edit.</p>
+        <p style="margin-top:22px"><a class="btn btn-dark" href="#contact">Book a crown-jewel audit</a></p>
+      </div>
+      <div class="tier-stack" aria-label="The three tiers">
+        <div class="tcard t1c"><div class="k">Tier 1 · Open</div><div class="pct">~80%</div><div class="w">Marketing, decks, public papers, templates</div><div class="h">Any cloud AI. Start on day one.</div></div>
+        <div class="tcard t2c"><div class="k">Tier 2 · Internal</div><div class="pct">~18%</div><div class="w">Reports, customer lists, supplier terms, process data</div><div class="h">Private deployment. Access by role. Everything logged.</div></div>
+        <div class="wall">the wall <span></span> the gate</div>
+        <div class="tcard t3c"><div class="k">Tier 3 · Crown jewels</div><div class="pct">~2%</div><div class="w">The formula. The recipe. The circuit. The failed experiments.</div><div class="h">Local hardware, open-weight model. Nothing leaves without a ticket.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band research" id="research">
+  <div class="wrap">
+    <p class="eyebrow">Research programme</p>
+    <h2 style="margin-top:10px;max-width:20ch">The quantum gate: a ticket no computer can forge.</h2>
+    <p class="lede" style="margin-top:18px">Our research line asks one question: how do you make the gate's ticket hold for twenty years, through the arrival of quantum computers? Today's answer is built from parts you can buy. Tomorrow's is in the laboratory.</p>
+    <div class="rgrid">
+      <div class="rcard"><div class="k">Today · deployable</div><p>Ticket keys from a quantum random number generator, so no one can predict them. Signatures with ML-DSA, the NIST post-quantum standard of 2024, so no known computer, quantum ones included, can forge them.</p></div>
+      <div class="rcard"><div class="k">Next · in development</div><p>Full post-quantum encryption of the crown-jewel store itself, against "harvest now, decrypt later": the adversary who copies your files today and waits for the machine that opens them.</p></div>
+      <div class="rcard"><div class="k">Horizon · research</div><p>True quantum tokens: physical tickets that cannot be copied at all. Demonstrated over a few kilometres of fibre in 2024. A research project, not a product, and we say so.</p></div>
+    </div>
+    <p class="rnote">We never say "unbreakable". The honest claim is "no known attack", and we write the date next to it. <span class="ph">[CONFIRM: any statement about the founders' own quantum-technology experience goes here, only if it is literally true]</span></p>
+  </div>
+</section>
+
+<section class="band" id="promises">
+  <div class="wrap">
+    <p class="eyebrow">Three promises</p>
+    <h2 style="margin:10px 0 40px">Why the advice can be trusted.</h2>
+    <div class="prin">
+      <div><h3>We never sell hardware, licences or models.</h3><p>So there is no commission hidden in the recommendation. When a $6,000 workstation will do, we say so.</p></div>
+      <div><h3>We never handle Tier 3 data off your premises.</h3><p>Crown-jewel work happens in your building, on your machines, under your log.</p></div>
+      <div><h3>We never say "unbreakable".</h3><p>Every security claim comes with the attack it was tested against and the date.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-alt" id="people">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">People</p><h2 style="margin-top:10px">Scientists first. That is the point.</h2></div>
+      <p class="lede">The judgement that separates a crown jewel from a merely confidential file, in a materials or medical company, is a scientific judgement. Very few security consultants can make it.</p>
+    </div>
+    <div class="people">
+      <div class="person"><div class="avatar">E<b>P</b></div><div><h3>Elena Polyakova, PhD</h3><div class="role">Co-founder · CEO</div><p>Materials scientist and company builder. Co-founded and ran an advanced-materials company; now leads Botformed's client work and the research programme. <span class="ph">[CONFIRM: bio text, two sentences]</span></p></div></div>
+      <div class="person"><div class="avatar">D<b>S</b></div><div><h3>Daniel Stolyarov, PhD</h3><div class="role">Co-founder · <span class="ph">[CONFIRM TITLE]</span></div><p>Physicist and technologist. <span class="ph">[CONFIRM: bio text, two sentences]</span></p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Work with us</p>
+      <h2 style="margin-top:10px">Start with two weeks.</h2>
+      <p class="lede" style="margin-top:16px">A short, fixed-scope engagement on Rung 1 or Rung 3. You see the work before you commit to anything larger. Write to us or use the form.</p>
+      <div class="mail"><code id="mail">info@botformed.com</code><button class="copy" id="copybtn" type="button">Copy address</button></div>
+      <p style="margin-top:28px;font-family:var(--mono);font-size:12px;color:var(--on-dark-muted);letter-spacing:.08em">BOTFORMED INC. · DELAWARE · BOSTON, MASSACHUSETTS</p>
+    </div>
+    <form class="form" id="f">
+      <label>Name<input id="f-name" type="text" autocomplete="name"></label>
+      <label>Company<input id="f-co" type="text" autocomplete="organization"></label>
+      <label>What are you protecting?<select id="f-what"><option>A formula or recipe</option><option>A process window</option><option>A design or circuit</option><option>Clinical or patient data</option><option>Not sure yet, that is the question</option></select></label>
+      <label>Message<textarea id="f-msg"></textarea></label>
+      <button class="btn btn-red" type="submit">Send</button>
+      <p class="ok" id="f-ok" hidden>Concept page: nothing was sent. On the live site this goes to info@botformed.com.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>© 2026 Botformed Inc.</span><span>info@botformed.com</span><span>Concept mockup · not live</span></div>
+</footer>
+
+<section class="band appendix" id="appendix">
+  <div class="wrap">
+    <p class="eyebrow">Appendix · for internal review only · delete before publishing</p>
+    <h2 style="margin:10px 0 14px">The visual language</h2>
+    <p class="lede">Everything above is built from this sheet. Black is the instrument panel: the hero, the strip, the contact band. Paper is where people read. Scarlet is the only accent on black. The three tier colours mean something and are never used as decoration. Indigo belongs to research alone.</p>
+    <div class="sw" style="margin-top:36px">
+      <div style="background:#0E0E0E;color:#D2CFC9">Ink<br>#0E0E0E<br>hero, nav, contact</div>
+      <div style="background:#FAFAF7;color:#161616">Paper<br>#FAFAF7<br>reading sections</div>
+      <div style="background:#F1F0EB;color:#161616">Paper 2<br>#F1F0EB<br>alternate sections</div>
+      <div style="background:#C8382F;color:#fff">Scarlet<br>#C8382F<br>the o, buttons, eyebrows</div>
+      <div style="background:#15803D;color:#fff">Tier 1<br>#15803D<br>open</div>
+      <div style="background:#B45309;color:#fff">Tier 2<br>#B45309<br>internal</div>
+      <div style="background:#FBE4E1;color:#C8382F">Tier 3<br>#FBE4E1 / #C8382F<br>crown jewels</div>
+      <div style="background:linear-gradient(135deg,#1E1B4B,#3730A3);color:#E6E4F7">Research<br>#1E1B4B → #3730A3<br>quantum gate only</div>
+    </div>
+    <div class="spec">
+      <div class="box">
+        <div class="k">Type</div>
+        <p style="font-family:var(--head);font-weight:600;font-size:34px;line-height:1.1">Oxanium 600 for headings</p>
+        <p style="font-family:var(--head);font-weight:300;font-size:34px;line-height:1.1;margin-top:6px">Oxanium 300 for the b<span style="color:var(--red)">o</span>tformed wordmark</p>
+        <p style="margin-top:16px">IBM Plex Sans 17px / 1.6 for everything people read. It is calm next to Oxanium and it has a real italic.</p>
+        <p style="font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:14px">IBM Plex Mono 12px, letter-spaced caps, for labels, prices and the footer</p>
+      </div>
+      <div class="box">
+        <div class="k">Components</div>
+        <p style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-red" href="#appendix">Primary</a><a class="btn btn-dark" href="#appendix">On paper</a><span class="now">Running now</span></p>
+        <p style="margin-top:16px"><span class="tier"><i class="a"></i><i class="b"></i><i class="c"></i></span> &nbsp;Tier squares on every service: which data the work touches. Grey means not touched.</p>
+        <p style="margin-top:12px"><span class="ph">[CONFIRM: …]</span> &nbsp;Amber placeholder for anything that needs a human decision before the site goes live.</p>
+        <p style="margin-top:12px">Corners: 4px on buttons, 6px on tier and research cards, 0 on service cards and portraits. No shadows anywhere; borders and background shifts do the separating.</p>
+      </div>
+    </div>
+    <ul class="rules">
+      <li>The gate animation is the only motion on the site. Everything else is still.</li>
+      <li>One scarlet element per screen: the o, a button, or an eyebrow. Never two buttons in red.</li>
+      <li>Photographs, when added, are black-and-white or very dark, so the tier colours stay the only colour that means something.</li>
+      <li>Headlines are sentences with a full stop, not slogans. They say what we do.</li>
+      <li>Prices or durations appear on every service. A page that hides the price reads as a consultancy that bills by the hour.</li>
+      <li>Numbers in the strip come with a source in brackets. No number without a source anywhere on the site.</li>
+      <li>The research band is the one place for the indigo gradient and the glow. It is where the site is allowed to look like physics.</li>
+      <li>Rung 1 is always the big card. It is what pays, and it is what a visitor can buy today.</li>
+    </ul>
+  </div>
+</section>
+
+<script>
+(function(){
+  // The gate: particles flow left to right through tier 1 and tier 2; at the wall only ticketed ones pass into tier 3.
+  var cv=document.getElementById('gate'), c=cv.getContext('2d'), Wd=cv.width, Hd=cv.height;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var wallX=Wd*0.68, gateY=Hd*0.5, gateR=26;
+  var ps=[]; for(var i=0;i<70;i++) ps.push(spawn(true));
+  function spawn(any){ var ticket=Math.random()<0.16; return {x:any?Math.random()*wallX*0.95:-10, y:40+Math.random()*(Hd-80), vx:0.5+Math.random()*0.9, vy:(Math.random()-0.5)*0.25, r:1.6+Math.random()*1.6, ticket:ticket, state:'flow', t:0}; }
+  function draw(){
+    c.clearRect(0,0,Wd,Hd);
+    // tier zones
+    c.fillStyle='rgba(21,128,61,0.08)'; c.fillRect(0,0,wallX*0.5,Hd);
+    c.fillStyle='rgba(180,83,9,0.08)'; c.fillRect(wallX*0.5,0,wallX*0.5,Hd);
+    c.fillStyle='rgba(200,56,47,0.10)'; c.fillRect(wallX,0,Wd-wallX,Hd);
+    c.font='11px IBM Plex Mono, monospace'; c.fillStyle='#8A8884'; c.textAlign='left';
+    c.fillText('TIER 1 · OPEN',16,24); c.fillText('TIER 2 · INTERNAL',wallX*0.5+16,24); c.fillText('TIER 3',wallX+14,24);
+    // wall
+    c.fillStyle='#D2CFC9'; c.fillRect(wallX-2,0,4,gateY-gateR-6); c.fillRect(wallX-2,gateY+gateR+6,4,Hd);
+    // gate ring
+    c.beginPath(); c.arc(wallX,gateY,gateR,0,Math.PI*2); c.strokeStyle='#3730A3'; c.lineWidth=3; c.stroke();
+    c.beginPath(); c.arc(wallX,gateY,7,0,Math.PI*2); c.fillStyle='#3730A3'; c.fill();
+    // ledger ticks on the right
+    c.fillStyle='#8A8884'; c.fillText('LEDGER',wallX+14,Hd-18);
+    for(var p=0;p<ps.length;p++){
+      var q=ps[p];
+      if(q.state==='flow'){
+        q.x+=q.vx; q.y+=q.vy; if(q.y<30||q.y>Hd-30) q.vy=-q.vy;
+        if(q.x>wallX*0.5){ q.y+= (gateY-q.y)*0.012; }           // tier 2 funnels toward the gate
+        if(q.x>=wallX-gateR){
+          if(Math.abs(q.y-gateY)<gateR-4 && q.ticket){ q.state='pass'; q.t=0; }
+          else { q.state='bounce'; q.t=0; q.vx=-(0.6+Math.random()*0.6); q.vy=(Math.random()-0.5)*1.2; }
+        }
+      } else if(q.state==='pass'){
+        q.x+=1.4; q.t++; if(q.x>Wd-20){ ledger.push(1); if(ledger.length>14) ledger.shift(); ps[p]=spawn(false); continue; }
+      } else if(q.state==='bounce'){
+        q.x+=q.vx; q.y+=q.vy; q.t++; if(q.t>60){ q.state='flow'; q.vx=0.5+Math.random()*0.9; q.vy=(Math.random()-0.5)*0.25; q.ticket=Math.random()<0.16; }
+      }
+      if(q.x<-20) ps[p]=spawn(false);
+      // draw
+      c.beginPath(); c.arc(q.x,q.y,q.r,0,Math.PI*2);
+      c.fillStyle = q.state==='pass' ? '#A78BFA' : (q.ticket ? '#E25A50' : '#D2CFC9'); c.globalAlpha = q.state==='bounce'?0.55:0.9; c.fill(); c.globalAlpha=1;
+      if(q.ticket && q.state!=='pass'){ c.beginPath(); c.arc(q.x,q.y,q.r+3,0,Math.PI*2); c.strokeStyle='rgba(226,90,80,0.5)'; c.lineWidth=1; c.stroke(); }
+    }
+    // ledger entries
+    for(var l=0;l<ledger.length;l++){ c.fillStyle='#A78BFA'; c.fillRect(wallX+14+l*10,Hd-34,6,6); }
+    if(!reduce) requestAnimationFrame(draw);
+  }
+  var ledger=[1,1,1,1,1];
+  draw(); if(reduce){ for(var k=0;k<400;k++){} }
+  // copy
+  var btn=document.getElementById('copybtn');
+  btn.addEventListener('click',function(){
+    var txt=document.getElementById('mail').textContent;
+    function sel(){ var r=document.createRange(); r.selectNodeContents(document.getElementById('mail')); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent='Select and copy'; }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ btn.textContent='Copied'; setTimeout(function(){btn.textContent='Copy address';},1800); }, sel); } else sel();
+  });
+  document.getElementById('f').addEventListener('submit',function(e){ e.preventDefault(); document.getElementById('f-ok').hidden=false; });
+})();
+</script>
+</body>
+</html>
